@@ -460,6 +460,7 @@
             }
             .burger-btn {
                 display: block;
+            }
         }
         @media (max-width: 992px) {
             .forme {
@@ -496,7 +497,7 @@
         }
         @media (max-width: 820px) {
             .about{
-                dixplay: flex;
+                display: flex;
                 flex-direction: column;
             }
            .about2{
@@ -507,6 +508,19 @@
                 height: 1400px;
             }
         }
+        
+        /* === IMPORTANT: MODIFICATION DEMANDÉE POUR TABLET (max-width: 1024px) === */
+        /* Uniquement l'image .about2 img doit couvrir toute la largeur du parent .about2 */
+        @media (max-width: 1024px) {
+            .about2 img {
+                width: 100% !important;
+                border-radius: 0 !important;
+                max-height: none !important;
+                height: auto !important;
+                object-fit: cover !important;
+            }
+        }
+        
         @media (max-width: 768px) {
             .forme {
                 padding: 20px;
@@ -543,21 +557,46 @@
             .about2 {
                 flex-direction: column;
                 text-align: center;
+                padding: 0;
+                gap: 0;
+                border-radius: 24px;
+                overflow: hidden;
+            }
+            .about22 {
+                padding: 20px 20px 15px 20px;
             }
             .about2 img {
-                width: 80%;
-                margin-top: 15px;
-                border-radius: 30px;
+                width: 100%;
+                margin-top: 0;
+                border-radius: 0;
+                max-height: none;
+                height: auto;
+                display: block;
             }
             .haut strong {
                 font-size: 1.6rem;
             }
-            .page1gauche span {
-                font-size: 3.5rem;
+            /* === MODIFICATION UNIQUEMENT ICI : sur mobile, le bloc texte passe en haut, image en bas pleine largeur === */
+            .page1 {
+                flex-direction: column;
             }
-            .page1gauche h2 {
-                font-size: 1.5rem;
+            .page1gauche {
+                order: 1;
             }
+            .page1droite {
+                order: 2;
+                width: 100%;
+                flex: none;
+                margin: 0;
+                padding: 0;
+            }
+            .page1droite img {
+                width: 100%;
+                height: auto;
+                display: block;
+                object-fit: cover;
+            }
+            /* fin des modifications demandées */
             .bas2 {
                 flex-direction: column;
             }
@@ -589,6 +628,14 @@
             }
             .about2 {
                 flex-direction: column;
+                padding: 0;
+            }
+            .about22 {
+                padding: 15px;
+            }
+            .about2 img {
+                width: 100%;
+                border-radius: 0;
             }
             .droite11, .gauche11 {
                 padding: 20px;
@@ -757,4 +804,3 @@
 </script>
 </body>
 </html>
-```
